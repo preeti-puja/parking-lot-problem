@@ -128,46 +128,46 @@ x.slot_numbers_for_cars_with_colour("red")
 x.slot_number_for_registration_number("KA-01-HH-1235")
 
 file = File.open("input.txt")
-x = MyProgram.new file.each_line.first.gsub('\n', '')
+y = MyProgram.new file.each_line.first.gsub('\n', '')
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 slot = file.each_line.first.gsub('\n', '')
-x.leave(slot)
+y.leave(slot)
 
 status  = file.each_line.first.gsub('\n', '')
-x.status
+y.status
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 records = file.each_line.first.gsub('\n', '').split(' ')
-x.park(records[1], records[2])
+y.park(records[1], records[2])
 
 color = file.each_line.first.gsub('\n', '')
-x.registration_numbers_for_cars_with_colour(color)
+y.registration_numbers_for_cars_with_colour(color)
 
 color = file.each_line.first.gsub('\n', '')
-x.slot_numbers_for_cars_with_colour(color)
+y.slot_numbers_for_cars_with_colour(color)
 
 vehicle_number = file.each_line.first.gsub('\n', '')
-x.slot_number_for_registration_number(vehicle_number)
+y.slot_number_for_registration_number(vehicle_number)
 
 vehicle_number = file.each_line.first.gsub('\n', '')
-x.slot_number_for_registration_number vehicle_number
+y.slot_number_for_registration_number vehicle_number
