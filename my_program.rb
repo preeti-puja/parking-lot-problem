@@ -64,11 +64,11 @@ class MyProgram
   end
 
   def leave(slot_number)
-   slot_number = slot_number.to_i
+    slot_number = slot_number.to_i
     if slot_number > 0 && slot_number < slots.length
       slots[slot_number - 1].free
       puts"slot number#{slot_number } is free"
-      else
+    else
       puts "slot number doesnot exists"
     end
   end
@@ -84,7 +84,7 @@ class MyProgram
 
   def registration_numbers_for_cars_with_colour(color)
     slot = slots.find do |slot|
-       slot.vehicle_color == color
+      slot.vehicle_color == color
     end
     puts  slot ? "#{slot.vehicle_number}" : "invalid"
   end
@@ -112,62 +112,94 @@ class MyProgram
   end
 end
 
-x = MyProgram.new 6
-x.park("KA-01-HH-1234", "white")
-x.park("KA-01-HH-9999", "white")
-x.park("KA-01-BB-0001", "black")
-x.park("KA-01-HH-1238", "red")
-x.park("KA-01-HH-7777", "blue")
-x.park("KA-01-HH-2701", "black")
-x.leave(4)
-x.status
-x.park("KA-01-HH-3141", "Black")
-x.park("KA-01-HH-3241", "Black")
-x.registration_numbers_for_cars_with_colour("white")
-x.slot_numbers_for_cars_with_colour("red")
-x.slot_number_for_registration_number("KA-01-HH-1235")
+def my_program(input = nil, output = nil)
+  if input && output
+    input_file = File.open(input, 'r')
+    output_file = File.open(output, 'w')
 
-file = File.open("input.txt")
-y = MyProgram.new file.each_line.first.gsub('\n', '')
+    x = MyProgram.new input_file.lines.first.gsub('\n', '')
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
+    output_file.close
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
+    output_file.close
 
-slot = file.each_line.first.gsub('\n', '')
-y.leave(slot)
+    slot_no = input_file.lines.first.gsub('\n', '')
+    output_file.write x.leave(slot_no)
+    output_file.write("\n")
+    output_file.close
 
-status  = file.each_line.first.gsub('\n', '')
-y.status
+    status  = input_file.lines.first.gsub('\n', '')
+    output_file.write x.status
+    output_file.write("\n")
+    output_file.close
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
 
-records = file.each_line.first.gsub('\n', '').split(' ')
-y.park(records[1], records[2])
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
+    output_file.close
 
-color = file.each_line.first.gsub('\n', '')
-y.registration_numbers_for_cars_with_colour(color)
+    records = input_file.lines.first.gsub('\n', '').split(' ')
+    output_file.write x.park(records[1], records[2])
+    output_file.write("\n")
+    output_file.close
 
-color = file.each_line.first.gsub('\n', '')
-y.slot_numbers_for_cars_with_colour(color)
+    color = input_file.lines.first.gsub('\n', '')
+    output_file.write x.registration_numbers_for_cars_with_colour(color)
+    output_file.write("\n")
+    output_file.close
 
-vehicle_number = file.each_line.first.gsub('\n', '')
-y.slot_number_for_registration_number(vehicle_number)
+    color = input_file.lines.first.gsub('\n', '')
+    output_file.write x.slot_numbers_for_cars_with_colour(color)
+    output_file.write("\n")
+    output_file.close
 
-vehicle_number = file.each_line.first.gsub('\n', '')
-y.slot_number_for_registration_number vehicle_number
+    vehicle_number = input_file.lines.first.gsub('\n', '')
+    output_file.write x.slot_number_for_registration_number(vehicle_number)
+    output_file.write("\n")
+    output_file.close
+
+    vehicle_number = input_file.lines.first.gsub('\n', '')
+    output_file.write x.slot_number_for_registration_number vehicle_number
+    output_file.write("\n")
+    output_file.close
+  else
+    x = MyProgram.new 6
+    x.park("KA-01-HH-1234", "white")
+    x.park("KA-01-HH-9999", "white")
+    x.park("KA-01-BB-0001", "black")
+    x.park("KA-01-HH-1238", "red")
+    x.park("KA-01-HH-7777", "blue")
+    x.park("KA-01-HH-2701", "black")
+    x.leave(4)
+    x.status
+    x.park("KA-01-HH-3141", "Black")
+    x.park("KA-01-HH-3241", "Black")
+    x.registration_numbers_for_cars_with_colour("white")
+    x.slot_numbers_for_cars_with_colour("red")
+    x.slot_number_for_registration_number("KA-01-HH-1235")
+  end
+end
+
